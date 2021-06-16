@@ -1,0 +1,71 @@
+body {
+}
+
+.circle {
+  z-index: -1;
+  position: absolute;
+  border-radius: 50%;
+  background: rgb(252, 203, 244);
+  animation: ripple 10s infinite;
+  box-shadow: 0px 0px 1px 0px #f5f3ef;
+}
+
+.small {
+  width: 200px;
+  height: 200px;
+  left: -100px;
+  top: -100px;
+}
+
+.medium {
+  width: 400px;
+  height: 400px;
+  left: -200px;
+  top: -200px;
+}
+
+.large {
+  width: 600px;
+  height: 600px;
+  left: -300px;
+  top: -300px;
+}
+
+.xlarge {
+  width: 800px;
+  height: 800px;
+  left: -400px;
+  top: -400px;
+}
+
+.xxlarge {
+  width: 1000px;
+  height: 1000px;
+  left: -500px;
+  top: -500px;
+}
+
+.shade1 {
+  opacity: 0.4;
+}
+.shade2 {
+  opacity: 0.6;
+}
+
+.shade3 {
+  opacity: 0.8;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.5);
+  }
+
+  50% {
+    transform: scale(0.7);
+  }
+
+  100% {
+    transform: scale(0.5);
+  }
+}

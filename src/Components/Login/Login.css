@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@300&display=swap");
+.Login {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: 85vh;
+  font-family: "Assistant", sans-serif;
+}
+
+.card {
+  box-shadow: 2px 8px 10px rgb(104, 102, 105);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 2px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgba(245, 236, 236, 0.404);
+}
+
+img {
+  height: 500px;
+  width: auto;
+}
+
+.img {
+  background: url(./d4.jpeg) top left/cover no-repeat;
+  width: 45%;
+  display: table-cell;
+}
+.card-body {
+  display: table-cell;
+  padding: 10px 40px;
+  padding-bottom: 50px;
+}
+.h1 {
+  background-color: rgba(117, 22, 113, 0.699);
+  border: none;
+  border-radius: 5px;
+  font-size: large;
+  padding: 6px 14px;
+  margin: 26px;
+  text-transform: uppercase;
+  border: rgb(72, 1, 82) 1.8px solid;
+  letter-spacing: 1 px;
+  color: rgb(255, 249, 249);
+  font-weight: 3000;
+}
+.form1 {
+  background-color: rgba(227, 236, 240, 0.699);
+  border: rgb(72, 1, 82) 1.8px solid;
+  border-radius: 12px;
+  font-size: medium;
+  padding: 6px 10px;
+  margin: 6px;
+  letter-spacing: 1.5px;
+  color: rgb(39, 38, 38);
+  outline: none;
+  transition: 0.4s;
+}
+.form1:hover {
+  transform: scale(1.04);
+  border-color: rgb(27, 5, 48);
+  box-shadow: 0.6px 0.6px 3px rgb(91, 12, 143);
+}
+.login-button {
+  background-color: rgba(117, 22, 113, 0.699);
+  border: rgb(72, 1, 82) 1.8px solid;
+  border-radius: 12px;
+  font-size: large;
+  text-transform: uppercase;
+  padding: 6px 40px;
+  margin-top: 12px;
+  letter-spacing: 1.5px;
+  color: rgb(245, 239, 239);
+  outline: none;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.login-button:active {
+  box-shadow: 2px 2px 20px rgb(91, 12, 143);
+  transform: translateY(2px);
+  cursor: pointer;
+}
+a {
+  color: rgb(97, 3, 84);
+  text-decoration: none;
+}
+
+.text {
+  margin-top: 14px;
+  font-size: 1.7vh;
+}

@@ -1,0 +1,42 @@
+.Add {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  width: 30vw;
+
+  padding: 10px;
+  margin: 20vh 14vh;
+}
+.cardd {
+  box-shadow: 2px 8px 10px rgb(104, 102, 105);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 2px;
+  width: 40%;
+  border: none;
+  min-height: 300px;
+  max-height: 400px;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 8px 16px;
+  box-shadow: 0px 3px 10px rgba(116, 1, 133, 0.664);
+  cursor: pointer;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+  background-color: rgba(91, 12, 143, 0.849);
+}
+
+.cardd:hover {
+  transform: scale(1.05);
+}
+.h1 {
+  border: none;
+  padding: 10px 20px;
+  font-size: xx-large;
+  cursor: pointer;
+  background-color: rgb(252, 253, 253);
+  color: rgb(91, 12, 143);
+}

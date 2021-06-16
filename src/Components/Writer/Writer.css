@@ -1,0 +1,134 @@
+.body-article {
+  padding: 12rem;
+}
+.Article {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+
+  min-height: 30vh;
+  min-width: 60vh;
+}
+.heading,
+.sub {
+  color: #2b2a2a;
+  font-size: 1.5vw;
+  padding: 4px 0px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 2px;
+  border: none;
+  background: transparent;
+  width: 100%;
+  overflow: hidden;
+  resize: none;
+}
+.sub {
+  font-size: 1.19vw;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+.story {
+  row-gap: 2px;
+  outline: none;
+  resize: none;
+  height: auto;
+  width: auto;
+
+  border: none;
+  background-color: transparent;
+
+  padding: 5px 0px;
+  word-spacing: 1px;
+  line-height: 180%;
+  color: rgb(11, 1, 49);
+  font-size: 1.2vw;
+}
+
+button {
+  float: right;
+  padding: 5px 6px;
+  margin-top: 0;
+  border: none;
+  background-color: rgb(82, 12, 85);
+  border-radius: 4px;
+  color: aliceblue;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.imgg {
+}
+/*.img-holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.img-holder img {
+  max-width: 100%;
+  height: auto;
+}
+.img-holder .add {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: (82, 12, 85);
+  border-radius: 4px;
+  color: white;
+  font-size: 32px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  text-align: center;
+  height: 50px;
+  width: auto;
+  padding: 0px 22px;
+}*/
+
+#input[type="file"] {
+  display: none;
+  cursor: copy;
+}
+
+.p {
+  background-color: rgb(82, 12, 85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  color: white;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  height: 40px;
+  width: 1.5vw;
+  padding: 0px 20px;
+}
+.bf-progress {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border: none;
+  color: #2c4bff;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+progress {
+  -webkit-writing-mode: horizontal-tb !important;
+  appearance: auto;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 1em;
+  width: 10em;
+  vertical-align: -0.2em;
+}
+/**/

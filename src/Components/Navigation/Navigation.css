@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+.icon {
+  color: rgb(102, 4, 102);
+  font-weight: bold;
+  margin-top: 0;
+  margin-left: 0;
+  text-shadow: 2px 2px 2px rgb(193, 123, 250);
+  text-transform: uppercase;
+  font-size: larger;
+  letter-spacing: 1.5px;
+  color: rgb(81, 10, 83);
+  font-family: "Satisfy", cursive;
+}
+.logo-img {
+  margin: 0;
+  height: 100px;
+  width: auto;
+}
+.login {
+  color: rgb(102, 4, 102);
+  font-weight: 500;
+  margin-top: 1em;
+  margin-left: 0.02em;
+  transition: 0.5s;
+  border-radius: 18px;
+  padding: 4px 12px;
+  font-size: larger;
+  letter-spacing: 1.5px;
+  color: rgb(81, 10, 83);
+  cursor: pointer;
+}
+.login:hover {
+  background-color: rgba(117, 22, 113, 0.699);
+  color: rgb(247, 251, 255);
+  cursor: pointer;
+  transform: scale(1.1);
+}
