@@ -13,7 +13,7 @@
 .sub {
   color: #2b2a2a;
   font-size: 1.5vw;
-  padding: 4px 0px;
+  padding: 4px 0px !important;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   letter-spacing: 2px;
   border: none;
@@ -24,6 +24,7 @@
 }
 .sub {
   font-size: 1.19vw;
+  margin-bottom: 0px !important;
 }
 input:focus,
 textarea:focus {
@@ -47,9 +48,9 @@ textarea:focus {
   font-size: 1.2vw;
 }
 
-button {
+.button {
   float: right;
-  padding: 5px 6px;
+  padding: 10px 16px;
   margin-top: 0;
   border: none;
   background-color: rgb(82, 12, 85);

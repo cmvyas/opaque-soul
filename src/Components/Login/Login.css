@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   border-radius: 2px;
-  width: 90%;
+  width: 100%;
   max-width: 500px;
   text-align: center;
   border-radius: 10px;
@@ -23,13 +23,16 @@
 }
 
 img {
-  height: 500px;
-  width: auto;
+  margin-top: 0px;
+  height: 280px;
+  width: 600px;
 }
 
 .img {
-  background: url(./d4.jpeg) top left/cover no-repeat;
-  width: 45%;
+  border-radius: 12px 0px 0px 12px;
+  background-color: rgb(162, 7, 201);
+  background: url(./image.png) bottom center/cover no-repeat;
+  width: 65%;
   display: table-cell;
 }
 .card-body {

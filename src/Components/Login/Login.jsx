@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "./Login.css";
 import Writer from "../Writer/Writer";
+import soul from "./soul.jpg";
 
 class Login extends React.Component {
   constructor() {
@@ -20,7 +21,7 @@ class Login extends React.Component {
       console.log(this.state.password)
     );
   };
-  onButtonClick = () => {};
+
   render() {
     return (
       <div className='Login'>
@@ -51,7 +52,13 @@ class Login extends React.Component {
                 </div>
                 <div>
                   <Link to='/writer'>
-                    <button className='login-button' type='submit'>
+                    <button
+                      onClick={() => {
+                        this.props.onRouteChange();
+                      }}
+                      className='login-button'
+                      type='submit'
+                    >
                       Login
                     </button>
                   </Link>

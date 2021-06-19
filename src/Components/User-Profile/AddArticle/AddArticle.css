@@ -2,41 +2,64 @@
   display: inline-block;
   align-items: center;
   justify-content: center;
-  width: 30vw;
 
-  padding: 10px;
-  margin: 20vh 14vh;
+  padding: 8px;
+  margin: 12vh 14vh;
+  width: 80vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
 }
+
 .cardd {
-  box-shadow: 2px 8px 10px rgb(104, 102, 105);
-  align-items: center;
+  box-shadow: 2px 8px 10px rgb(209, 208, 209);
+  align-items: baseline;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-radius: 2px;
-  width: 40%;
+  width: auto;
   border: none;
-  min-height: 300px;
+  min-height: 200px;
   max-height: 400px;
-  max-width: 400px;
+  max-width: 300px;
+  min-width: 200px;
   text-align: center;
   border-radius: 10px;
-  padding: 8px 16px;
-  box-shadow: 0px 3px 10px rgba(116, 1, 133, 0.664);
   cursor: pointer;
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
-  background-color: rgba(91, 12, 143, 0.849);
+  background-color: rgba(251, 251, 251, 0.938);
+}
+.cover-img {
+  max-width: 100%;
+  height: auto;
+  padding: 0px 0px;
+  border-radius: 10px 10px 0 0;
 }
 
 .cardd:hover {
   transform: scale(1.05);
 }
-.h1 {
+
+.heading,
+.sub {
+  color: #2b2a2a;
+  font-size: 1.5vw;
+  padding: 0px 0px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 2px;
   border: none;
-  padding: 10px 20px;
-  font-size: xx-large;
-  cursor: pointer;
-  background-color: rgb(252, 253, 253);
-  color: rgb(91, 12, 143);
+  background: transparent;
+  width: 100%;
+  overflow: hidden;
+  resize: none;
+  text-align: start;
+  margin-left: 1px;
+  margin-top: 0px;
+}
+.sub {
+  font-size: 1.2vw;
+  color: #464545;
+  margin-bottom: 40px;
 }

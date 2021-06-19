@@ -37,6 +37,7 @@ class Register extends React.Component {
               <form>
                 <div>
                   <input
+                    onChange={this.onNameChange}
                     className='form1'
                     type='text'
                     placeholder='Name'
@@ -44,6 +45,7 @@ class Register extends React.Component {
                 </div>
                 <div>
                   <input
+                    onChange={this.onEmailChange}
                     className='form1'
                     type='email'
                     placeholder='Email'
@@ -51,13 +53,18 @@ class Register extends React.Component {
                 </div>
                 <div>
                   <input
+                    onChange={this.onPasswordChange}
                     className='form1'
                     type='password'
                     placeholder='Password'
                   ></input>
                 </div>
                 <div>
-                  <button className='login-button' type='submit'>
+                  <button
+                    onClick={this.props.onRouteChange}
+                    className='login-button'
+                    type='submit'
+                  >
                     Register
                   </button>
                 </div>

@@ -1,13 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import flower from "./tulip.jpeg";
-import add from "./add.png";
+
 import "./Writer.css";
 
 class Writer extends React.Component {
-  state = {
-    coverImage: flower,
-  };
+  constructor() {
+    super();
+    this.state = {
+      coverImage: flower,
+      title: "",
+      subTitle: "",
+      story: "",
+    };
+  }
   imageHandler = (e) => {
     const reader = new FileReader();
     reader.onload = () => {
@@ -18,6 +24,20 @@ class Writer extends React.Component {
     };
     reader.readAsDataURL(e.target.files[0]);
   };
+
+  updateTitle = (e) => {
+    this.setState({ title: e.target.value }, console.log(this.state.title));
+  };
+  updatesubTitle = (e) => {
+    this.setState(
+      { subTitle: e.target.value },
+      console.log(this.state.subTitle)
+    );
+  };
+  updateStory = (e) => {
+    this.setState({ story: e.target.value }, console.log(this.state.story));
+  };
+
   render() {
     const { coverImage } = this.state;
     return (
@@ -28,26 +48,15 @@ class Writer extends React.Component {
             <div className='headingg'>
               <button className='button'>Save</button>
               <input
+                onChange={this.updateTitle}
                 className='heading'
                 type='text'
                 placeholder='Title'
               ></input>
             </div>
-            <progress
-              id='reading-progress'
-              class='bf-progress'
-              value='6745'
-              aria-valuenow='6745'
-              aria-valuemin='0'
-              aria-valuemax='22218.4'
-              max='22218.4'
-            >
-              <div class='bf-progress-container'>
-                <span class='bf-progress-bar'></span>
-              </div>
-            </progress>
             <div className='sub'>
               <textarea
+                onChange={this.updatesubTitle}
                 rows='2'
                 type='text'
                 className='sub'
@@ -71,6 +80,7 @@ class Writer extends React.Component {
               </div>
               <div className='Story'>
                 <textarea
+                  onChange={this.updateStory}
                   className='story'
                   rows='40'
                   cols='80'
