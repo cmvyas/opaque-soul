@@ -2,6 +2,7 @@ import React from "react";
 import Login from "./Components/Login/Login";
 import "./App.css";
 import Navigation from "./Components/Navigation/Navigation";
+import Home from "./Components/Home/Home";
 import Writer from "./Components/Writer/Writer";
 import Register from "./Components/Register/Register";
 import AddArticle from "./Components/User-Profile/AddArticle/Add-Article";
@@ -31,8 +32,9 @@ class App extends React.Component {
             login={this.state.login}
             onRouteChange={this.onRouteChange}
           />
-
           <Switch>
+            <Route path='/' exact component={Home}></Route>
+
             <Route
               path='/login'
               component={() => <Login onRouteChange={this.onRouteChange} />}

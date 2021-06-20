@@ -22,10 +22,9 @@
   background-color: rgba(245, 236, 236, 0.404);
 }
 
-img {
-  margin-top: 0px;
-  height: 280px;
-  width: 600px;
+.img {
+  height: 500px;
+  width: 50vw;
 }
 
 .img {
