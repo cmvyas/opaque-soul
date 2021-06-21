@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import "./Login.css";
 
 class Login extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       user: "",
       password: "",
@@ -18,6 +18,10 @@ class Login extends React.Component {
       { password: e.target.value },
       console.log(this.state.password)
     );
+  };
+
+  onSubmitLoginIn = () => {
+    fetch();
   };
 
   render() {
