@@ -5,7 +5,6 @@ import Navigation from "./Components/Navigation/Navigation";
 import Home from "./Components/Home/Home";
 import Writer from "./Components/Writer/Writer";
 import Register from "./Components/Register/Register";
-import AddArticle from "./Components/User-Profile/AddArticle/Add-Article";
 import Background from "./Components/Background/background";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -16,6 +15,13 @@ class App extends React.Component {
       login: false,
     };
   }
+
+  componentDidMount() {
+    fetch("http://localhost:3001")
+      .then((response) => response.json())
+      .then(console.log);
+  }
+
   onRouteChange = () => {
     this.setState((currentState) => ({
       login: !currentState.login,

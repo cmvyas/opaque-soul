@@ -1,8 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Login.css";
-import Writer from "../Writer/Writer";
-import soul from "./soul.jpg";
 
 class Login extends React.Component {
   constructor() {
@@ -27,7 +25,7 @@ class Login extends React.Component {
       <div className='Login'>
         <div className='card'>
           <div className='img'>
-            <img></img>
+            <img alt='login'></img>
           </div>
           <div className='card-body'>
             <button className='h1'>Login</button>

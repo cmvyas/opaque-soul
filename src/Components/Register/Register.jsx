@@ -28,7 +28,7 @@ class Register extends React.Component {
       <div className='Login'>
         <div className='card'>
           <div className='img'>
-            <img></img>
+            <img alt='register'></img>
           </div>
           <div className='card-body'>
             <button className='h1'>register</button>

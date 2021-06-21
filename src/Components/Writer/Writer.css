@@ -43,7 +43,7 @@ textarea:focus {
 
   padding: 5px 0px;
   word-spacing: 1px;
-  line-height: 180%;
+  line-height: 180% !important;
   color: rgb(11, 1, 49);
   font-size: 1.2vw;
 }

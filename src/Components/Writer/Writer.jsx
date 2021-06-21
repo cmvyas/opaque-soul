@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import flower from "./tulip.jpeg";
-
 import "./Writer.css";
 
 class Writer extends React.Component {
