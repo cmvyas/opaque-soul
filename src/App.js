@@ -6,17 +6,31 @@ import Home from "./Components/Home/Home";
 import Writer from "./Components/Writer/Writer";
 import Register from "./Components/Register/Register";
 import Background from "./Components/Background/background";
-
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       login: false,
+      user: {
+        id: "",
+        name: "",
+        email: "",
+        joined: "",
+      },
     };
   }
-
-  onRouteChange = () => {
+  newUser = (data) => {
+    this.setState({
+      user: {
+        id: data.id,
+        name: data.name,
+        email: data.email,
+        joined: data.joined,
+      },
+    });
+  };
+  onLoginChange = () => {
     this.setState((currentState) => ({
       login: !currentState.login,
     }));
@@ -25,28 +39,29 @@ class App extends React.Component {
   render() {
     console.log(this.state.login);
     return (
-      <Router>
-        <div className='app'>
-          <Background />
-          <Navigation
-            login={this.state.login}
-            onRouteChange={this.onRouteChange}
-          />
-          <Switch>
-            <Route path='/' exact component={Home}></Route>
+      <div className='app'>
+        <Background />
+        <Navigation
+          login={this.state.login}
+          onLoginChange={this.onLoginChange}
+        />
+        <Switch>
+          <Route path='/' exact component={Home}></Route>
 
-            <Route
-              path='/login'
-              component={() => <Login onRouteChange={this.onRouteChange} />}
+          <Route path='/login'>
+            <Login onLoginChange={this.onLoginChange} />
+          </Route>
+          <Route path='/register'>
+            <Register
+              newUser={this.newUser}
+              onLoginChange={this.onLoginChange}
             />
-            <Route
-              path='/register'
-              component={() => <Register onRouteChange={this.onRouteChange} />}
-            />
-            <Route path='/writer' component={Writer} />
-          </Switch>
-        </div>
-      </Router>
+          </Route>
+          <Route path='/writer'>
+            {!this.state.login ? <Redirect to='/login' /> : <Writer />}
+          </Route>
+        </Switch>
+      </div>
     );
   }
 }

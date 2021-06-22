@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "../Login/Login.css";
 
 class Register extends React.Component {
@@ -18,10 +18,26 @@ class Register extends React.Component {
     this.setState({ email: e.target.value });
   };
   onPasswordChange = (e) => {
-    this.setState(
-      { password: e.target.value },
-      console.log(this.state.password)
-    );
+    this.setState({ password: e.target.value });
+  };
+
+  onSubmitRegister = () => {
+    fetch("http://localhost:4001/register", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((user) => {
+        if (user) {
+          this.props.newUser();
+          this.props.onLoginChange();
+        }
+      });
   };
   render() {
     return (
@@ -34,44 +50,42 @@ class Register extends React.Component {
             <button className='h1'>register</button>
 
             <div className='form'>
-              <form>
-                <div>
-                  <input
-                    onChange={this.onNameChange}
-                    className='form1'
-                    type='text'
-                    placeholder='Name'
-                  ></input>
-                </div>
-                <div>
-                  <input
-                    onChange={this.onEmailChange}
-                    className='form1'
-                    type='email'
-                    placeholder='Email'
-                  ></input>
-                </div>
-                <div>
-                  <input
-                    onChange={this.onPasswordChange}
-                    className='form1'
-                    type='password'
-                    placeholder='Password'
-                  ></input>
-                </div>
-                <div>
-                  <button
-                    onClick={this.props.onRouteChange}
-                    className='login-button'
-                    type='submit'
-                  >
-                    Register
-                  </button>
-                </div>
-                <div className='text'>
-                  Already have an account ?<Link to='/login'> Login</Link>
-                </div>
-              </form>
+              <div>
+                <input
+                  onChange={this.onNameChange}
+                  className='form1'
+                  type='text'
+                  placeholder='Name'
+                ></input>
+              </div>
+              <div>
+                <input
+                  onChange={this.onEmailChange}
+                  className='form1'
+                  type='email'
+                  placeholder='Email'
+                ></input>
+              </div>
+              <div>
+                <input
+                  onChange={this.onPasswordChange}
+                  className='form1'
+                  type='password'
+                  placeholder='Password'
+                ></input>
+              </div>
+              <div>
+                <button
+                  onClick={this.onSubmitRegister}
+                  className='login-button'
+                  type='submit'
+                >
+                  Register
+                </button>
+              </div>
+              <div className='text'>
+                Already have an account ?<Link to='/login'> Login</Link>
+              </div>
             </div>
           </div>
         </div>
@@ -80,4 +94,4 @@ class Register extends React.Component {
   }
 }
 
-export default Register;
+export default withRouter(Register);

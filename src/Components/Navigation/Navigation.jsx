@@ -3,7 +3,7 @@ import "./Navigation.css";
 import { Link } from "react-router-dom";
 import pen from "./o.png";
 
-const Navigation = ({ login, onRouteChange }) => {
+const Navigation = ({ login, onLoginChange }) => {
   return (
     <div>
       <nav>
@@ -15,7 +15,7 @@ const Navigation = ({ login, onRouteChange }) => {
             <Link to='/login'>
               <p
                 onClick={() => {
-                  onRouteChange();
+                  onLoginChange();
                 }}
                 className='login'
                 style={{ float: "right" }}
