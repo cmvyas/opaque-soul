@@ -51,6 +51,8 @@ class Login extends React.Component {
             <div className='form'>
               <div>
                 <input
+                  required
+                  value={this.state.name}
                   onChange={this.onUserChange}
                   className='form1'
                   type='text'
