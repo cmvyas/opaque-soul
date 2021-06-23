@@ -17,6 +17,9 @@
   height: 100px;
   width: auto;
 }
+.user{
+  text-transform: capitalize;
+}
 .login {
   color: rgb(102, 4, 102);
   font-weight: 500;

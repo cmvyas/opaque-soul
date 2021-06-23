@@ -14,7 +14,7 @@ class App extends React.Component {
       login: false,
       user: {
         id: "",
-        name: "",
+        name: "0",
         email: "",
         joined: "",
       },
@@ -42,6 +42,7 @@ class App extends React.Component {
       <div className='app'>
         <Background />
         <Navigation
+          name={this.state.user.name}
           login={this.state.login}
           onLoginChange={this.onLoginChange}
         />
@@ -49,7 +50,7 @@ class App extends React.Component {
           <Route path='/' exact component={Home}></Route>
 
           <Route path='/login'>
-            <Login onLoginChange={this.onLoginChange} />
+            <Login newUser={this.newUser} onLoginChange={this.onLoginChange} />
           </Route>
           <Route path='/register'>
             <Register

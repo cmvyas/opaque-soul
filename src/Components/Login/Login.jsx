@@ -29,7 +29,8 @@ class Login extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data === "suc") {
+        if (data.id) {
+          this.props.newUser(data);
           this.props.onLoginChange();
           this.props.history.push("/writer");
         } else {

@@ -9,6 +9,9 @@ class Register extends React.Component {
       name: "",
       email: "",
       password: "",
+      nameError: "",
+      emailError: "",
+      passwordError: "",
     };
   }
   onNameChange = (e) => {
@@ -20,24 +23,49 @@ class Register extends React.Component {
   onPasswordChange = (e) => {
     this.setState({ password: e.target.value });
   };
+  validate = () => {
+    let nameError = "";
+    let emailError = "";
+    let passwordError = "";
+
+    if (!this.state.name) {
+      nameError = "Name is required";
+    }
+    if (!this.state.password < 6) {
+      passwordError = "Minimum 6 digit password require";
+    }
+
+    if (!this.state.email.includes("@")) {
+      emailError = "Invalid Email";
+    }
+    if (emailError || nameError || passwordError) {
+      this.setState({ emailError, nameError, passwordError });
+      return false;
+    }
+    return true;
+  };
 
   onSubmitRegister = () => {
-    fetch("http://localhost:4001/register", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: this.state.name,
-        email: this.state.email,
-        password: this.state.password,
-      }),
-    })
-      .then((response) => response.json())
-      .then((user) => {
-        if (user) {
-          this.props.newUser();
-          this.props.onLoginChange();
-        }
-      });
+    const isValid = this.validate();
+    if (isValid) {
+      fetch("http://localhost:4001/register", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: this.state.name,
+          email: this.state.email,
+          password: this.state.password,
+        }),
+      })
+        .then((response) => response.json())
+        .then((user) => {
+          if (user) {
+            this.props.newUser(user);
+            this.props.onLoginChange();
+            this.props.history.push("/writer");
+          }
+        });
+    }
   };
   render() {
     return (
@@ -52,27 +80,40 @@ class Register extends React.Component {
             <div className='form'>
               <div>
                 <input
+                  value={this.state.name}
                   onChange={this.onNameChange}
                   className='form1'
                   type='text'
                   placeholder='Name'
                 ></input>
+                {this.state.nameError ? (
+                  <div className='error'>{this.state.nameError}</div>
+                ) : null}
               </div>
+
               <div>
                 <input
+                  value={this.state.email}
                   onChange={this.onEmailChange}
                   className='form1'
                   type='email'
                   placeholder='Email'
                 ></input>
+                {this.state.emailError ? (
+                  <div className='error'>{this.state.emailError}</div>
+                ) : null}
               </div>
               <div>
                 <input
+                  value={this.state.password}
                   onChange={this.onPasswordChange}
                   className='form1'
                   type='password'
                   placeholder='Password'
                 ></input>
+                {this.state.passwordError ? (
+                  <div className='error'>{this.state.passwordError}</div>
+                ) : null}
               </div>
               <div>
                 <button

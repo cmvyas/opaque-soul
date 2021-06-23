@@ -97,3 +97,8 @@ a {
   margin-top: 14px;
   font-size: 1.7vh;
 }
+.error{
+  margin-left: 10px;
+  text-align: left;
+  color:rgb(51, 3, 80)
+}

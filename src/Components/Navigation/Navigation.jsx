@@ -3,7 +3,7 @@ import "./Navigation.css";
 import { Link } from "react-router-dom";
 import pen from "./o.png";
 
-const Navigation = ({ login, onLoginChange }) => {
+const Navigation = ({ login, onLoginChange, name }) => {
   return (
     <div>
       <nav>
@@ -23,6 +23,9 @@ const Navigation = ({ login, onLoginChange }) => {
                 LogOut
               </p>
             </Link>
+            <div className='user login' style={{ float: "right" }}>
+              {`Hello,${name}`}
+            </div>
           </div>
         ) : (
           <div className='login-register'>
