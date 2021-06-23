@@ -7,6 +7,7 @@ import Writer from "./Components/Writer/Writer";
 import Register from "./Components/Register/Register";
 import Background from "./Components/Background/background";
 import { Switch, Route, Redirect } from "react-router-dom";
+import AddArticle from "./Components/User-Profile/AddArticle/Add-Article";
 class App extends React.Component {
   constructor() {
     super();
@@ -59,7 +60,7 @@ class App extends React.Component {
             />
           </Route>
           <Route path='/writer'>
-            {!this.state.login ? <Redirect to='/login' /> : <Writer />}
+            {!this.state.login ? <Redirect to='/login' /> : <AddArticle />}
           </Route>
         </Switch>
       </div>

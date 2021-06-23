@@ -11,26 +11,10 @@ class AddArticle extends React.Component {
             <img className='cover-img' alt='img' src={img}></img>
           </div>
           <div>
-            <p className='heading'>
-              Hello i am chandramani vyas Hello i am chandramani vyas
-            </p>
+            <p className='heading'>{heading}</p>
           </div>
           <div>
-            <p className='sub'>Helloo Hello i am chandramani vyas</p>
-          </div>
-        </div>
-
-        <div className='cardd'>
-          <div>
-            <img className='cover-img' alt='img' src={img}></img>
-          </div>
-          <div>
-            <p className='heading'>
-              Hello i am chandramani vyas Hello i am chandramani vyas
-            </p>
-          </div>
-          <div>
-            <p className='sub'>Helloo Hello i am chandramani vyas</p>
+            <p className='sub'>{subheading}</p>
           </div>
         </div>
       </div>

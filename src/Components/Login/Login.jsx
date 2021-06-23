@@ -8,6 +8,8 @@ class Login extends React.Component {
     this.state = {
       name: "",
       password: "",
+      nameError: "",
+      noUser: false,
     };
   }
 
@@ -17,26 +19,44 @@ class Login extends React.Component {
   onPasswordChange = (e) => {
     this.setState({ password: e.target.value });
   };
+  validate = () => {
+    let nameError = "";
+
+    if (this.state.noUser) {
+      nameError = "Invalid user name or password";
+    }
+
+    if (nameError) {
+      this.setState({ nameError });
+      return false;
+    }
+    return true;
+  };
 
   onSubmitLoginIn = () => {
-    fetch("http://localhost:4001/signin", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: this.state.name,
-        password: this.state.password,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.id) {
-          this.props.newUser(data);
-          this.props.onLoginChange();
-          this.props.history.push("/writer");
-        } else {
-          console.log("err");
-        }
-      });
+    const isValid = this.validate();
+    if (isValid) {
+      fetch("http://localhost:4001/signin", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: this.state.name,
+          password: this.state.password,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.id) {
+            this.setState({ noUser: false });
+            if (isValid) {
+              this.props.newUser(data);
+              this.props.onLoginChange();
+              this.props.history.push("/writer");
+            } else {
+            }
+          }
+        });
+    }
   };
 
   render() {
@@ -51,6 +71,9 @@ class Login extends React.Component {
 
             <div className='form'>
               <div>
+                {this.state.nameError ? (
+                  <div className='error'>{this.state.nameError}</div>
+                ) : null}
                 <input
                   required
                   value={this.state.name}
