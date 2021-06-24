@@ -3,6 +3,14 @@ import "./AddArticle.css";
 import img from "./d3.jpeg";
 
 class AddArticle extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      title: "",
+      subtitle: "",
+      story: "",
+    };
+  }
   render() {
     return (
       <div className='Add'>
@@ -11,10 +19,10 @@ class AddArticle extends React.Component {
             <img className='cover-img' alt='img' src={img}></img>
           </div>
           <div>
-            <p className='heading'>{heading}</p>
+            <p className='heading'></p>
           </div>
           <div>
-            <p className='sub'>{subheading}</p>
+            <p className='sub'></p>
           </div>
         </div>
       </div>

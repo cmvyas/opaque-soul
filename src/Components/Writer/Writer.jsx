@@ -8,7 +8,7 @@ class Writer extends React.Component {
     this.state = {
       coverImage: flower,
       title: "",
-      subTitle: "",
+      subtitle: "",
       story: "",
     };
   }
@@ -27,13 +27,29 @@ class Writer extends React.Component {
     this.setState({ title: e.target.value }, console.log(this.state.title));
   };
   updatesubTitle = (e) => {
-    this.setState(
-      { subTitle: e.target.value },
-      console.log(this.state.subTitle)
-    );
+    this.setState({ subtitle: e.target.value });
   };
   updateStory = (e) => {
-    this.setState({ story: e.target.value }, console.log(this.state.story));
+    this.setState({ story: e.target.value });
+  };
+
+  onSubmitSaveButton = () => {
+    fetch("http://localhost:4001/new", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: this.state.title,
+        subtitle: this.state.subtitle,
+        story: this.state.story,
+      }),
+    })
+      .then((response) => response.json())
+      .then((article) => {
+        if (article) {
+          this.props.newArticle(article);
+          //this.props.succesfulSubmission();
+        }
+      });
   };
 
   render() {
@@ -43,16 +59,18 @@ class Writer extends React.Component {
         <div></div>
         <div>
           <div className='body-article'>
-            <div className='headingg'>
-              <button className='button'>Save</button>
+            <div className='article-title'>
+              <button className='save' onClick={this.onSubmitSaveButton}>
+                Save
+              </button>
               <input
                 onChange={this.updateTitle}
-                className='heading'
+                className='article-heading'
                 type='text'
                 placeholder='Title'
               ></input>
             </div>
-            <div className='sub'>
+            <div className='article-subheading'>
               <textarea
                 onChange={this.updatesubTitle}
                 rows='2'

@@ -15,9 +15,15 @@ class App extends React.Component {
       login: false,
       user: {
         id: "",
-        name: "0",
+        name: "",
         email: "",
         joined: "",
+      },
+      article: {
+        id: "",
+        title: "",
+        subtitle: "",
+        story: "",
       },
     };
   }
@@ -28,6 +34,16 @@ class App extends React.Component {
         name: data.name,
         email: data.email,
         joined: data.joined,
+      },
+    });
+  };
+  newArticle = (newArticle) => {
+    this.setState({
+      article: {
+        id: newArticle.id,
+        title: newArticle.title,
+        subtitle: newArticle.subtitle,
+        story: newArticle.story,
       },
     });
   };
@@ -60,7 +76,11 @@ class App extends React.Component {
             />
           </Route>
           <Route path='/writer'>
-            {!this.state.login ? <Redirect to='/login' /> : <AddArticle />}
+            {!this.state.login ? (
+              <Redirect to='/login' />
+            ) : (
+              <Writer newArticle={this.newArticle} />
+            )}
           </Route>
         </Switch>
       </div>

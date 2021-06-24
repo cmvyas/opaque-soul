@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
 .body-article {
   padding: 12rem;
 }
@@ -9,8 +10,8 @@
   min-height: 30vh;
   min-width: 60vh;
 }
-.heading,
-.sub {
+.article-heading,
+.article-subheading {
   color: #2b2a2a;
   font-size: 1.5vw;
   padding: 4px 0px !important;
@@ -22,9 +23,10 @@
   overflow: hidden;
   resize: none;
 }
-.sub {
+.article-subheading {
   font-size: 1.19vw;
   margin-bottom: 0px !important;
+  font-family: 'Cedarville Cursive', cursive !important;
 }
 input:focus,
 textarea:focus {
@@ -37,10 +39,8 @@ textarea:focus {
   resize: none;
   height: auto;
   width: auto;
-
   border: none;
   background-color: transparent;
-
   padding: 5px 0px;
   word-spacing: 1px;
   line-height: 180% !important;
@@ -48,7 +48,7 @@ textarea:focus {
   font-size: 1.2vw;
 }
 
-.button {
+.save{
   float: right;
   padding: 10px 16px;
   margin-top: 0;
@@ -58,8 +58,13 @@ textarea:focus {
   color: aliceblue;
   text-transform: uppercase;
   letter-spacing: 1px;
+  cursor: pointer;
 }
-
+.save:active {
+  box-shadow: 2px 2px 12px rgb(91, 12, 143);
+  transform: translateY(2px);
+  cursor: pointer;
+}
 .imgg {
   max-width: 100%;
   height: auto;
