@@ -2,5 +2,28 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
+.landing-reader-writer{
+  color: rgb(102, 4, 102);
+  font-weight: 500;
+  transition: 0.5s;
+  border-radius: 18px;
+  padding: 9px 12px;
+  font-size: x-large;
+  letter-spacing: 1.5px;
+  color: rgb(255, 242, 255);
+  cursor: pointer;
+  margin-top: 6vw;
+  margin-left: 1.8vw;
+  text-transform: capitalize;
+  background-color: rgba(73, 2, 70, 0.986) ;
+  border: solid 1px rgb(49, 0, 71);
+}
+
+.landing-reader-writer:hover {
+    background-color: rgba(126, 31, 121, 0.699);
+    color: rgb(214, 214, 214);
+    cursor: pointer;
+    transform: scale(1.1);
+    border:none
+  }

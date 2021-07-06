@@ -31,7 +31,7 @@ class Register extends React.Component {
     if (!this.state.name) {
       nameError = "Name is required";
     }
-    if (!this.state.password < 6) {
+    if (!this.state.password >= 6) {
       passwordError = "Minimum 6 digit password require";
     }
 

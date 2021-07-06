@@ -1,0 +1,22 @@
+.article-save
+{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    background-color: transparent;
+    background: url(./butterfly.gif);
+    height: 400px;
+
+}
+
+.waiting{
+    font-size: large;
+    color: rgb(85, 85, 85);
+    text-transform: capitalize;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   margin-top: 400px;
+   align-self: center;
+}
+.saved-success{
+    margin-top: 10vw;
+}

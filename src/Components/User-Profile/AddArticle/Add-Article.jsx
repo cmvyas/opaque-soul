@@ -8,7 +8,6 @@ class AddArticle extends React.Component {
     this.state = {
       title: "",
       subtitle: "",
-      story: "",
     };
   }
   render() {
@@ -19,10 +18,10 @@ class AddArticle extends React.Component {
             <img className='cover-img' alt='img' src={img}></img>
           </div>
           <div>
-            <p className='heading'></p>
+            <p className='display-heading'>{this.props.title}</p>
           </div>
           <div>
-            <p className='sub'></p>
+            <p className='display-sub'>{this.props.subtitle}</p>
           </div>
         </div>
       </div>

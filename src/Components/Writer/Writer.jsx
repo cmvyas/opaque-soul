@@ -1,7 +1,7 @@
 import React from "react";
 import flower from "./tulip.jpeg";
 import "./Writer.css";
-
+import { Link, withRouter } from "react-router-dom";
 class Writer extends React.Component {
   constructor() {
     super();
@@ -34,7 +34,7 @@ class Writer extends React.Component {
   };
 
   onSubmitSaveButton = () => {
-    fetch("http://localhost:4001/new", {
+    fetch("http://localhost:4001/newArticle", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -48,6 +48,8 @@ class Writer extends React.Component {
         if (article) {
           this.props.newArticle(article);
           //this.props.succesfulSubmission();
+          this.props.history.push("/addArticle");
+          console.log("success");
         }
       });
   };
@@ -111,4 +113,4 @@ class Writer extends React.Component {
   }
 }
 
-export default Writer;
+export default withRouter(Writer);
