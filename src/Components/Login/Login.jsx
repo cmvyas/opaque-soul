@@ -52,7 +52,6 @@ class Login extends React.Component {
               this.props.newUser(data);
               this.props.onLoginChange();
               this.props.history.push("/writer");
-            } else {
             }
           }
         });

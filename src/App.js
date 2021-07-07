@@ -10,6 +10,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import AddArticle from "./Components/User-Profile/AddArticle/Add-Article";
 import { allArticle } from "./Components/All-Articles/All-Articles";
 import Save from "./Components/Writer/Article-Save/article-save";
+import Landing from "./Components/Landing/landing";
 class App extends React.Component {
   constructor() {
     super();
@@ -77,15 +78,18 @@ class App extends React.Component {
               onLoginChange={this.onLoginChange}
             />
           </Route>
-          <Route path='/writer'>
-            <Save name={this.state.user.name} />
-          </Route>
           <Route path='/landing'>
+            <Landing name={this.state.user.name} />
+          </Route>
+          <Route path='/writer'>
             {!this.state.login ? (
               <Redirect to='/login' />
             ) : (
               <Writer newArticle={this.newArticle} />
             )}
+          </Route>
+          <Route path='/save'>
+            <Save />
           </Route>
           <Route path='/addArticle'>
             <allArticle

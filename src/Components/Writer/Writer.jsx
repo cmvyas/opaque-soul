@@ -32,6 +32,9 @@ class Writer extends React.Component {
   updateStory = (e) => {
     this.setState({ story: e.target.value });
   };
+  succesfulSubmission = () => {
+    this.props.history.push("/save");
+  };
 
   onSubmitSaveButton = () => {
     fetch("http://localhost:4001/newArticle", {
@@ -47,9 +50,7 @@ class Writer extends React.Component {
       .then((article) => {
         if (article) {
           this.props.newArticle(article);
-          //this.props.succesfulSubmission();
-          this.props.history.push("/addArticle");
-          console.log("success");
+          this.props.succesfulSubmission();
         }
       });
   };
@@ -62,9 +63,11 @@ class Writer extends React.Component {
         <div>
           <div className='body-article'>
             <div className='article-title'>
-              <button className='save' onClick={this.onSubmitSaveButton}>
-                Save
-              </button>
+              <Link to='/save'>
+                <button className='save' onClick={this.onSubmitSaveButton}>
+                  Save
+                </button>
+              </Link>
               <input
                 onChange={this.updateTitle}
                 className='article-heading'
@@ -77,7 +80,7 @@ class Writer extends React.Component {
                 onChange={this.updatesubTitle}
                 rows='2'
                 type='text'
-                className='sub'
+                className='article-subheading'
                 placeholder='Sub-Heading'
               ></textarea>
               <div>
