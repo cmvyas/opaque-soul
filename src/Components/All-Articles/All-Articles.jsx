@@ -1,13 +1,33 @@
 import React from "react";
 import AddArticle from "../User-Profile/AddArticle/Add-Article";
 
-export const allArticle = (props) => {
-  console.log(props);
-  return (
-    <div className='card-list'>
-      {props.newArticle.map((article) => (
-        <AddArticle key={article.id} article={article} />
-      ))}
-    </div>
-  );
-};
+class AllArticles extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      allArticles: [
+        {
+          title: "ranu",
+          id: "1",
+        },
+        {
+          title: "kannu",
+          id: "2",
+        },
+        {
+          title: "shyam",
+          id: "3",
+        },
+      ],
+    };
+  }
+  render() {
+    return (
+      <div className='allarticles-card'>
+        {this.state.allArticles.map((articlebody) => (
+          <h1 key={articlebody.id}>{articlebody.title}</h1>
+        ))}
+      </div>
+    );
+  }
+}

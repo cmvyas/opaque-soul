@@ -92,7 +92,7 @@ class App extends React.Component {
             <Save />
           </Route>
           <Route path='/addArticle'>
-            <allArticle
+            <AddArticle
               title={this.state.article.title}
               subtitle={this.state.article.subtitle}
             />
