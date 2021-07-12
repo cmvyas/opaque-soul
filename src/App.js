@@ -7,10 +7,12 @@ import Writer from "./Components/Writer/Writer";
 import Register from "./Components/Register/Register";
 import Background from "./Components/Background/background";
 import { Switch, Route, Redirect } from "react-router-dom";
-import AddArticle from "./Components/User-Profile/AddArticle/Add-Article";
-import { allArticle } from "./Components/All-Articles/All-Articles";
+import AddArticle from "./Components/User-Profile/AddArticle/Article-Card-Display";
+import AllArticles from "./Components/All-Articles/All-Articles";
 import Save from "./Components/Writer/Article-Save/article-save";
 import Landing from "./Components/Landing/landing";
+import UserArticles from "./Components/Users-Articles/userArticleCollection";
+
 class App extends React.Component {
   constructor() {
     super();
@@ -36,7 +38,6 @@ class App extends React.Component {
         id: data.id,
         name: data.name,
         email: data.email,
-        joined: data.joined,
       },
     });
   };
@@ -66,8 +67,17 @@ class App extends React.Component {
           login={this.state.login}
           onLoginChange={this.onLoginChange}
         />
+        <UserArticles email={this.state.user.email} />
+        {/* <UserArticles id={this.state.user.id} /> */}
         <Switch>
           <Route path='/' exact component={Home}></Route>
+          <Route path='/save'>
+            <AllArticles
+              title={this.state.article.title}
+              subtitle={this.state.article.subtitle}
+              id={this.state.user.email}
+            />
+          </Route>
 
           <Route path='/login'>
             <Login newUser={this.newUser} onLoginChange={this.onLoginChange} />
@@ -85,18 +95,17 @@ class App extends React.Component {
             {!this.state.login ? (
               <Redirect to='/login' />
             ) : (
-              <Writer newArticle={this.newArticle} />
+              <Writer
+                email={this.state.user.email}
+                newArticle={this.newArticle}
+              />
             )}
           </Route>
-          <Route path='/save'>
+          <Route path='/wait'>
             <Save />
           </Route>
-          <Route path='/addArticle'>
-            <AddArticle
-              title={this.state.article.title}
-              subtitle={this.state.article.subtitle}
-            />
-          </Route>
+          <Route path='/addArticle'></Route>
+          <Route path='/save'></Route>
         </Switch>
       </div>
     );
