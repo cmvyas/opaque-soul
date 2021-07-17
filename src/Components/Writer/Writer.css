@@ -50,7 +50,7 @@ textarea:focus {
 
 .save{
   float: right;
-  padding: 10px 16px;
+  padding: 1vmax 1vmax;
   margin-top: 0;
   border: none;
   background-color: rgb(82, 12, 85);

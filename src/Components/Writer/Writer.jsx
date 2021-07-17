@@ -2,6 +2,7 @@ import React from "react";
 import flower from "./tulip.jpeg";
 import "./Writer.css";
 import { Link, withRouter } from "react-router-dom";
+import firebase from "../Firebase/firebase";
 class Writer extends React.Component {
   constructor() {
     super();
@@ -10,21 +11,43 @@ class Writer extends React.Component {
       title: "",
       subtitle: "",
       story: "",
+      email: "",
+      files: null,
     };
   }
-  imageHandler = (e) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        this.setState({ coverImage: reader.result });
-        console.log(reader);
-      }
-    };
-    reader.readAsDataURL(e.target.files[0]);
+
+  componentDidMount() {
+    this.setState({ email: this.props.email });
+  }
+
+  imageHandler = (files) => {
+    this.setState({
+      files: files,
+    });
   };
 
+  imageSave = () => {
+    let bucketName = "images";
+    let file = this.state.files[0];
+    let storageRef = firebase.storage().ref(`${bucketName}/${file.name}`);
+    let uploadTask = storageRef.put(file);
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, () => {
+      let downloadURL = uploadTask.snapshot.downloadURL;
+    });
+  };
+  showImage = () => {
+    let storageRef = firebase.storage().ref();
+    let spaceRef = storageRef.child("images/" + this.state.files[0].name);
+    storageRef
+      .child("images/" + this.state.files[0].name)
+      .getDownloadURL()
+      .then((url) => {
+        document.getElementById("new_image").src = url;
+        console.log(url);
+      });
+  };
   updateTitle = (e) => {
-    this.setState({ title: e.target.value }, console.log(this.state.title));
+    this.setState({ title: e.target.value });
   };
   updatesubTitle = (e) => {
     this.setState({ subtitle: e.target.value });
@@ -32,10 +55,16 @@ class Writer extends React.Component {
   updateStory = (e) => {
     this.setState({ story: e.target.value });
   };
-  succesfulSubmission = () => {
-    this.props.history.push("/save");
+  updateEmail = () => {
+    this.setState({ email: this.props.email });
   };
-
+  // succesfulSubmission = () => {
+  //   this.props.history.push("/save");
+  // };
+  wrapperFunction = () => {
+    this.imageSave();
+    this.onSubmitSaveButton();
+  };
   onSubmitSaveButton = () => {
     fetch("http://localhost:4001/newArticle", {
       method: "post",
@@ -44,19 +73,19 @@ class Writer extends React.Component {
         title: this.state.title,
         subtitle: this.state.subtitle,
         story: this.state.story,
+        email: this.state.email,
+        coverImage: this.state.file,
       }),
     })
       .then((response) => response.json())
       .then((article) => {
         if (article) {
           this.props.newArticle(article);
-          this.props.succesfulSubmission();
         }
       });
   };
 
   render() {
-    const { coverImage } = this.state;
     return (
       <div className='Article'>
         <div></div>
@@ -83,22 +112,8 @@ class Writer extends React.Component {
                 className='article-subheading'
                 placeholder='Sub-Heading'
               ></textarea>
-              <div>
-                <div className='img-holder'>
-                  <input
-                    type='file'
-                    name='image-upload'
-                    id='input'
-                    accept='image/*'
-                    onChange={this.imageHandler}
-                  ></input>
-                  <label className='image-upload' htmlFor='input'>
-                    <p className='p'>+</p>
-                  </label>
 
-                  <img alt='' id='img' src={coverImage} className='imgg' />
-                </div>
-              </div>
+              <div></div>
               <div className='Story'>
                 <textarea
                   onChange={this.updateStory}

@@ -51,7 +51,7 @@ class Login extends React.Component {
             if (isValid) {
               this.props.newUser(data);
               this.props.onLoginChange();
-              this.props.history.push("/writer");
+              this.props.history.push("/opaque-soul");
             }
           }
         });

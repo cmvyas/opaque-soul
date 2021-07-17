@@ -1,57 +1,27 @@
-import { render } from "@testing-library/react";
+//import { render } from "@testing-library/react";
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./ReadArticle.css";
 class ArticleBody extends React.Component {
   render() {
+    const { title, subtitle, story } = this.props.article;
     return (
-      <div className='Article'>
-        <div>
-          <div className='body-article'>
-            <div className='article-title'>
-              <Link to='/save'>
-                <button className='save'>BACK</button>
-              </Link>
-              <input
-                readOnly={true}
-                className='article-heading'
-                type='text'
-                placeholder='Title'
-              ></input>
-            </div>
-            <div className='article-subheading'>
-              <textarea
-                readOnly={true}
-                rows='2'
-                type='text'
-                className='article-subheading'
-                placeholder='Sub-Heading'
-              ></textarea>
-              <div>
-                <div className='img-holder'>
-                  <input
-                    type='file'
-                    name='image-upload'
-                    id='input'
-                    accept='image/*'
-                    onChange={this.imageHandler}
-                  ></input>
-                  <label className='image-upload' htmlFor='input'>
-                    <p className='p'>+</p>
-                  </label>
+      <div className='Read'>
+        <div className='bodyarticle'>
+          <div className='article-title'>
+            <Link to='/opaque-soul'>
+              <button className='save'>BACK</button>
+            </Link>
+          </div>
+          <div>
+            <p className='readheading'>{title}</p>
+          </div>
+          <div>
+            <p className='readsubheading'>{subtitle}</p>
+          </div>
 
-                  <img alt='' id='img' className='imgg' />
-                </div>
-              </div>
-              <div className='Story'>
-                <textarea
-                  readOnly={true}
-                  className='story'
-                  rows='40'
-                  cols='80'
-                  placeholder='Your Story....'
-                ></textarea>
-              </div>
-            </div>
+          <div>
+            <p className='story'>{story}</p>
           </div>
         </div>
       </div>

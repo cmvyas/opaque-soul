@@ -7,11 +7,15 @@ import Writer from "./Components/Writer/Writer";
 import Register from "./Components/Register/Register";
 import Background from "./Components/Background/background";
 import { Switch, Route, Redirect } from "react-router-dom";
-import AddArticle from "./Components/User-Profile/AddArticle/Article-Card-Display";
+//import AddArticle from "./Components/User-Profile/AddArticle/Article-Card-Display";
 import AllArticles from "./Components/All-Articles/All-Articles";
 import Save from "./Components/Writer/Article-Save/article-save";
 import Landing from "./Components/Landing/landing";
+// import UserArticles from "./Components/Users-Articles/userArticleCollection";
+import ArticleBody from "./Components/All-Articles/Article-Body";
+import ReadArticle from "./Components/All-Articles/Read-Article";
 import UserArticles from "./Components/Users-Articles/userArticleCollection";
+import UserArticleCard from "./Components/Users-Articles/userArticleCardDisplay";
 
 class App extends React.Component {
   constructor() {
@@ -30,6 +34,7 @@ class App extends React.Component {
         subtitle: "",
         story: "",
       },
+      currentArticleId: null,
     };
   }
   newUser = (data) => {
@@ -57,8 +62,13 @@ class App extends React.Component {
     }));
   };
 
+  currentArticleId = (id) => {
+    this.setState({ currentArticleId: id });
+  };
+
   render() {
     console.log(this.state.login);
+
     return (
       <div className='app'>
         <Background />
@@ -67,17 +77,10 @@ class App extends React.Component {
           login={this.state.login}
           onLoginChange={this.onLoginChange}
         />
-        <UserArticles email={this.state.user.email} />
+
         {/* <UserArticles id={this.state.user.id} /> */}
         <Switch>
           <Route path='/' exact component={Home}></Route>
-          <Route path='/save'>
-            <AllArticles
-              title={this.state.article.title}
-              subtitle={this.state.article.subtitle}
-              id={this.state.user.email}
-            />
-          </Route>
 
           <Route path='/login'>
             <Login newUser={this.newUser} onLoginChange={this.onLoginChange} />
@@ -88,10 +91,26 @@ class App extends React.Component {
               onLoginChange={this.onLoginChange}
             />
           </Route>
-          <Route path='/landing'>
+          <Route path='/opaque-soul'>
             <Landing name={this.state.user.name} />
           </Route>
-          <Route path='/writer'>
+          <Route path='/alll'>
+            <AllArticles currentArticleId={this.currentArticleId} />
+          </Route>
+          <Route path='/user-collection'>
+            <UserArticles
+              title={this.state.article.title}
+              subtitle={this.state.article.subtitle}
+              email={this.state.user.email}
+              id={this.state.article.id}
+              name={this.state.user.name}
+            />
+          </Route>
+
+          <Route path='/readArticle'>
+            <ReadArticle currentArticleId={this.state.currentArticleId} />
+          </Route>
+          <Route path='/all'>
             {!this.state.login ? (
               <Redirect to='/login' />
             ) : (
@@ -101,11 +120,9 @@ class App extends React.Component {
               />
             )}
           </Route>
-          <Route path='/wait'>
+          <Route path='/save'>
             <Save />
           </Route>
-          <Route path='/addArticle'></Route>
-          <Route path='/save'></Route>
         </Switch>
       </div>
     );
