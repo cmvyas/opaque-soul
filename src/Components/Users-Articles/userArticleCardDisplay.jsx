@@ -1,38 +1,43 @@
 import React from "react";
 import "../User-Profile/AddArticle/AddArticle.css";
-import img from "./d3.jpeg";
-
+import Landing from "../Landing/landing";
+import { withRouter } from "react-router-dom";
 class UserArticleCard extends React.Component {
   constructor() {
     super();
     this.state = {
-      open: [],
+      name: "",
     };
   }
+  componentDidMount() {
+    this.setState({ name: this.props.name });
+  }
 
-  // onCardClick = () => {
-  //   fetch(`http://localhost:4001/opaque-soul/readers`)
-  //     .then((response) => response.json())
-  //     .then((open) => this.setState({ open: open }));
-  //   this.props.history.push("/open");
-  // };
   render() {
     return (
       <div>
+        <div>
+          <Landing name={this.props.name} />
+        </div>
         <div className='Add'>
           {this.props.allArticles.map((articlebody) => (
             <div key={articlebody.id}>
               <div className='cardd'>
-                <div>
-                  <img className='cover-img' alt='img' src={img}></img>
-                </div>
-
                 <div>
                   <p className='display-heading'>{articlebody.title}</p>
                 </div>
                 <div>
                   <p className='display-sub'>{articlebody.subtitle}</p>
                 </div>
+                <button
+                  className='readhere'
+                  onClick={async () => {
+                    await this.props.currentArticleId(articlebody.id);
+                    this.props.history.push("/readArticle");
+                  }}
+                >
+                  read
+                </button>
               </div>
             </div>
           ))}
@@ -42,4 +47,4 @@ class UserArticleCard extends React.Component {
   }
 }
 
-export default UserArticleCard;
+export default withRouter(UserArticleCard);

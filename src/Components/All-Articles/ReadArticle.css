@@ -9,40 +9,116 @@
   }
   .readheading,
 .readsubheading {
-  color: #200046;
+  color: #414141;
   font-size: 1.6vmax;
-  padding: 4px 0px !important;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  letter-spacing: 2px;
+  padding: 1px 0px !important;
+  font-family: 'Abril Fatface', cursive;
+  letter-spacing: 4px;
   border: none;
   background: transparent;
-  width: 100%;
-  overflow: hidden;
-  resize: none;
+  width: 80%;
   text-transform: capitalize;
-  color: #0f0120;
-  text-decoration: solid;
-  font-weight: 900;
+
 }
 .readsubheading {
-  font-size: 1.2vmax;
+  margin-top: 20px;
+  font-size: 1.1vmax;
   margin-bottom: 0px !important;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-transform: capitalize;
-  color: rgb(61, 61, 61);
-  font-weight:normal
+  color: rgb(85, 62, 88);
+  font-weight:normal;
+  letter-spacing: 2px;
 }
-.story {
+.readquote{
+  margin-left: -2px;
+  border:transparent;
+  color:rgb(29, 0, 29);
+  overflow: hidden;
+  outline: none;
+  resize: none;
+  height: auto;
+  width: auto;
+  padding: 5px 10px;
+  padding-left: 2px;
+  word-spacing: 1px;
+  line-height: 160% !important;
+  color: rgb(11, 1, 49);
+  font-size: 1.2vmax;
+}
+.blockquotes
+{
+  border-top: 2px solid rgb(255, 193, 255);
+  border-bottom: 2px solid rgb(255, 193, 255);
+  border-left: 8px solid rgb(56, 0, 56);
+  box-sizing: border-box;
+  padding: 10px 50px;
+  margin-top: 20px;
+  background-color: #fdcffdd0;
+  width:28vmax;
+}
+.storyread {
     row-gap: 2px;
     outline: none;
     resize: none;
     height: auto;
-    width: auto;
+    width: 70%;
     border: none;
     background-color: transparent;
     padding: 5px 0px;
     word-spacing: 1px;
     line-height: 180% !important;
-    color: rgb(61, 61, 61);
+    color:rgb(11, 1, 49);
     font-size: 1.2vmax;
+  }
+
+  ::-webkit-scrollbar{
+    width: 0;
+  }
+  #scrollpath{
+    position: fixed;
+    top:0;
+    right:0;
+    width:10px;
+    height: 100%;
+    background-color: (255,255,255,0.05);
+  }
+  #progressbar{
+    position: fixed;
+    top:0;
+    right:0;
+    width:10px;
+    height: 100%;
+    background: linear-gradient(to top,#008aff,#00ffe7);
+    animation: animate 5s linear infinite;
+  }
+
+  @keyframes animate {
+    0%,100%{
+      filter:hue-rotate(0deg);
+    }
+    50%{
+      filter:hue-rotate(180deg)
+    }
+  }
+
+  #progressbar:before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    background: linear-gradient(to top,#008aff,#00ffe7);
+    filter:blur(10px)
+  }
+  #progressbar:after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    background: linear-gradient(to top,#008aff,#00ffe7);
+    filter:blur(30px)
   }

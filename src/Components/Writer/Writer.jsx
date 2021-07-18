@@ -1,53 +1,52 @@
 import React from "react";
-import flower from "./tulip.jpeg";
+
 import "./Writer.css";
 import { Link, withRouter } from "react-router-dom";
-import firebase from "../Firebase/firebase";
+
 class Writer extends React.Component {
   constructor() {
     super();
     this.state = {
-      coverImage: flower,
       title: "",
       subtitle: "",
       story: "",
       email: "",
-      files: null,
+      highlight: "",
+      titleError: "",
+      storyError: "",
+      highlightError: "",
+      byError: "",
     };
   }
+  validate = () => {
+    let titleError = "";
+    let storyError = "";
+    let highlightError = "";
+    let byError = "";
 
+    if (!this.state.title) {
+      titleError = "title is blank";
+    }
+    if (!this.state.story) {
+      storyError = "write your story";
+    }
+    if (!this.state.subtitle) {
+      byError = "your name";
+    }
+    if (!this.state.highlight) {
+      highlightError = "highlight of your story";
+    }
+    if (titleError || storyError || highlightError || byError) {
+      this.setState({ titleError, highlightError, storyError, byError });
+      return false;
+    }
+    return true;
+  };
   componentDidMount() {
     this.setState({ email: this.props.email });
   }
-
-  imageHandler = (files) => {
-    this.setState({
-      files: files,
-    });
-  };
-
-  imageSave = () => {
-    let bucketName = "images";
-    let file = this.state.files[0];
-    let storageRef = firebase.storage().ref(`${bucketName}/${file.name}`);
-    let uploadTask = storageRef.put(file);
-    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, () => {
-      let downloadURL = uploadTask.snapshot.downloadURL;
-    });
-  };
-  showImage = () => {
-    let storageRef = firebase.storage().ref();
-    let spaceRef = storageRef.child("images/" + this.state.files[0].name);
-    storageRef
-      .child("images/" + this.state.files[0].name)
-      .getDownloadURL()
-      .then((url) => {
-        document.getElementById("new_image").src = url;
-        console.log(url);
-      });
-  };
   updateTitle = (e) => {
-    this.setState({ title: e.target.value });
+    this.setState({ title: e.target.value }, console.log(this.state.title));
   };
   updatesubTitle = (e) => {
     this.setState({ subtitle: e.target.value });
@@ -58,31 +57,35 @@ class Writer extends React.Component {
   updateEmail = () => {
     this.setState({ email: this.props.email });
   };
-  // succesfulSubmission = () => {
-  //   this.props.history.push("/save");
-  // };
-  wrapperFunction = () => {
-    this.imageSave();
-    this.onSubmitSaveButton();
+  updateHighlight = (e) => {
+    this.setState(
+      { highlight: e.target.value },
+      console.log(this.state.highlight)
+    );
   };
+
   onSubmitSaveButton = () => {
-    fetch("http://localhost:4001/newArticle", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title: this.state.title,
-        subtitle: this.state.subtitle,
-        story: this.state.story,
-        email: this.state.email,
-        coverImage: this.state.file,
-      }),
-    })
-      .then((response) => response.json())
-      .then((article) => {
-        if (article) {
-          this.props.newArticle(article);
-        }
-      });
+    const isValid = this.validate();
+    if (isValid) {
+      fetch("http://localhost:4001/newArticle", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: this.state.title,
+          subtitle: this.state.subtitle,
+          story: this.state.story,
+          email: this.state.email,
+          highlight: this.state.highlight,
+        }),
+      })
+        .then((response) => response.json())
+        .then((article) => {
+          if (article) {
+            this.props.newArticle(article);
+          }
+        })
+        .then(this.props.history.push("/save"));
+    }
   };
 
   render() {
@@ -92,29 +95,49 @@ class Writer extends React.Component {
         <div>
           <div className='body-article'>
             <div className='article-title'>
-              <Link to='/save'>
-                <button className='save' onClick={this.onSubmitSaveButton}>
-                  Save
-                </button>
-              </Link>
-              <input
+              <button className='save' onClick={this.onSubmitSaveButton}>
+                Save
+              </button>
+
+              {this.state.titleError ? (
+                <div className='storyerror'>{this.state.titleError}</div>
+              ) : null}
+              <textarea
+                rows='2'
                 onChange={this.updateTitle}
                 className='article-heading'
                 type='text'
                 placeholder='Title'
-              ></input>
+              ></textarea>
             </div>
             <div className='article-subheading'>
-              <textarea
+              {this.state.byError ? (
+                <div className='storyerror'>{this.state.byError}</div>
+              ) : null}
+              <input
                 onChange={this.updatesubTitle}
-                rows='2'
                 type='text'
                 className='article-subheading'
-                placeholder='Sub-Heading'
-              ></textarea>
+                placeholder='By -'
+              ></input>
 
-              <div></div>
+              <div className='blockquote'>
+                {this.state.highlightError ? (
+                  <div className='storyerror'>{this.state.highlightError}</div>
+                ) : null}
+                <textarea
+                  onChange={this.updateHighlight}
+                  maxLength='300'
+                  className='highlight'
+                  placeholder='Highlight Of Your Writing'
+                  rows='6'
+                  cols='60'
+                ></textarea>
+              </div>
               <div className='Story'>
+                {this.state.storyError ? (
+                  <div className='storyerror'>{this.state.storyError}</div>
+                ) : null}
                 <textarea
                   onChange={this.updateStory}
                   className='story'

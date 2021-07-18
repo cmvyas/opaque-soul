@@ -1,7 +1,7 @@
 import React from "react";
 import Landing from "../../Landing/landing";
 import "./AddArticle.css";
-import img from "./d3.jpeg";
+
 import { Link, withRouter } from "react-router-dom";
 
 class AddArticle extends React.Component {
@@ -18,36 +18,33 @@ class AddArticle extends React.Component {
   render() {
     return (
       <div>
-        <div className='landing-top'>
-          <Link to='/all'>
-            <h4 className='landing-reader-writer'>OS Collection</h4>
-          </Link>
-          <Link to='/user-collection'>
-            <h4 className='landing-reader-writer'>{`${this.props.name}'s Diary`}</h4>
-          </Link>
+        <div>
+          <Landing name={this.props.name} />
         </div>
-        <div className='Add'>
-          {this.props.allArticles.map((articlebody) => (
-            <div key={articlebody.id}>
-              <div className='cardd'>
-                <div>
-                  <p className='display-heading'>{articlebody.title}</p>
+        <div className='try'>
+          <div className='Add'>
+            {this.props.allArticles.map((articlebody) => (
+              <div key={articlebody.id}>
+                <div className='cardd'>
+                  <div>
+                    <p className='display-heading'>{articlebody.title}</p>
+                  </div>
+                  <div>
+                    <p className='display-sub'>~{articlebody.subtitle}</p>
+                  </div>
+                  <button
+                    className='readhere'
+                    onClick={async () => {
+                      await this.props.currentArticleId(articlebody.id);
+                      this.props.history.push("/readArticle");
+                    }}
+                  >
+                    read
+                  </button>
                 </div>
-                <div>
-                  <p className='display-sub'>{articlebody.subtitle}</p>
-                </div>
-                <button
-                  className='save'
-                  onClick={async () => {
-                    await this.props.currentArticleId(articlebody.id);
-                    this.props.history.push("/readArticle");
-                  }}
-                >
-                  read
-                </button>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     );

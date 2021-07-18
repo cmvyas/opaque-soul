@@ -32,6 +32,7 @@ class App extends React.Component {
         id: "",
         title: "",
         subtitle: "",
+        highlight: "",
         story: "",
       },
       currentArticleId: null,
@@ -52,6 +53,7 @@ class App extends React.Component {
         id: newArticle.id,
         title: newArticle.title,
         subtitle: newArticle.subtitle,
+        highlight: newArticle.highlight,
         story: newArticle.story,
       },
     });
@@ -94,23 +96,24 @@ class App extends React.Component {
           <Route path='/opaque-soul'>
             <Landing name={this.state.user.name} />
           </Route>
-          <Route path='/alll'>
-            <AllArticles currentArticleId={this.currentArticleId} />
+          <Route path='/all'>
+            <AllArticles
+              name={this.state.user.name}
+              currentArticleId={this.currentArticleId}
+            />
           </Route>
           <Route path='/user-collection'>
             <UserArticles
-              title={this.state.article.title}
-              subtitle={this.state.article.subtitle}
-              email={this.state.user.email}
-              id={this.state.article.id}
               name={this.state.user.name}
+              currentArticleId={this.currentArticleId}
+              email={this.state.user.email}
             />
           </Route>
 
           <Route path='/readArticle'>
             <ReadArticle currentArticleId={this.state.currentArticleId} />
           </Route>
-          <Route path='/all'>
+          <Route path='/write'>
             {!this.state.login ? (
               <Redirect to='/login' />
             ) : (

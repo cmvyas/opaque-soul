@@ -1,6 +1,8 @@
 *{
-  
+  box-sizing: border-box;
 z-index: 100;
+margin:0;
+padding:0;
 
 }
 
@@ -12,10 +14,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: linear-gradient(
-    to right,
-    rgba(47, 3, 77, 0.87),rgba(176, 51, 248, 0.658)
-);
+
   
 }
 code {

@@ -31,11 +31,11 @@ class Register extends React.Component {
     if (!this.state.name) {
       nameError = "Name is required";
     }
-    if (!this.state.password >= 6) {
-      passwordError = "Minimum 6 digit password require";
+    if (!this.state.password) {
+      passwordError = "Password is required";
     }
 
-    if (!this.state.email.includes("@")) {
+    if (!this.state.email.includes("@gmail.com")) {
       emailError = "Invalid Email";
     }
     if (emailError || nameError || passwordError) {
@@ -62,7 +62,7 @@ class Register extends React.Component {
           if (user) {
             this.props.newUser(user);
             this.props.onLoginChange();
-            this.props.history.push("/writer");
+            this.props.history.push("/opaque-soul");
           }
         });
     }

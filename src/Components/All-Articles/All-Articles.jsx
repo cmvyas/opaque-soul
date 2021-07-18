@@ -21,6 +21,7 @@ class AllArticles extends React.Component {
         <AddArticle
           currentArticleId={this.props.currentArticleId}
           allArticles={this.state.allArticles}
+          name={this.props.name}
         />
       </div>
     );

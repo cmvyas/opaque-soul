@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import "./ReadArticle.css";
 class ArticleBody extends React.Component {
   render() {
-    const { title, subtitle, story } = this.props.article;
+    const { title, subtitle, highlight, story } = this.props.article;
     return (
       <div className='Read'>
+        <div id='progressbar'> </div>
+        <div id='scrollpath'></div>
         <div className='bodyarticle'>
           <div className='article-title'>
             <Link to='/opaque-soul'>
@@ -17,11 +19,13 @@ class ArticleBody extends React.Component {
             <p className='readheading'>{title}</p>
           </div>
           <div>
-            <p className='readsubheading'>{subtitle}</p>
+            <p className='readsubheading'>By-{subtitle}</p>
           </div>
-
+          <div className='blockquotes'>
+            <p className='readquote'>{highlight}</p>
+          </div>
           <div>
-            <p className='story'>{story}</p>
+            <p className='storyread'>{story}</p>
           </div>
         </div>
       </div>
