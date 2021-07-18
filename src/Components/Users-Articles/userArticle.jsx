@@ -1,8 +1,10 @@
 import React from "react";
-import "../User-Profile/AddArticle/AddArticle.css";
 import Landing from "../Landing/landing";
-import { withRouter } from "react-router-dom";
-class UserArticleCard extends React.Component {
+import "../User-Profile/AddArticle/AddArticle.css";
+
+import { Link, withRouter } from "react-router-dom";
+
+class UserArticle extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -19,8 +21,13 @@ class UserArticleCard extends React.Component {
         <div>
           <Landing name={this.props.name} />
         </div>
+        <div className='icon-button'>
+          <Link to='/writeArticle'>
+            <button className='icon-add'>+</button>
+          </Link>
+        </div>
         <div className='try'>
-          <div className='Add'>
+          <div className='userAdd'>
             {this.props.allArticles.map((articlebody) => (
               <div key={articlebody.id}>
                 <div className='cardd'>
@@ -28,7 +35,7 @@ class UserArticleCard extends React.Component {
                     <p className='display-heading'>{articlebody.title}</p>
                   </div>
                   <div>
-                    <p className='display-sub'>{articlebody.subtitle}</p>
+                    <p className='display-sub'>~{articlebody.subtitle}</p>
                   </div>
                   <button
                     className='readhere'
@@ -49,4 +56,4 @@ class UserArticleCard extends React.Component {
   }
 }
 
-export default withRouter(UserArticleCard);
+export default withRouter(UserArticle);

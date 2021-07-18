@@ -22,8 +22,8 @@ class Login extends React.Component {
   validate = () => {
     let nameError = "";
 
-    if (this.state.noUser) {
-      nameError = "Invalid user name or password";
+    if (!this.state.name || !this.state.password) {
+      nameError = "Try Again";
     }
 
     if (nameError) {
@@ -51,7 +51,7 @@ class Login extends React.Component {
             if (isValid) {
               this.props.newUser(data);
               this.props.onLoginChange();
-              this.props.history.push("/opaque-soul");
+              this.props.history.push("/opaque-soul-collection");
             }
           }
         });
@@ -63,7 +63,7 @@ class Login extends React.Component {
       <div className='Login'>
         <div className='card'>
           <div className='img'>
-            <img alt='login'></img>
+            <img></img>
           </div>
           <div className='card-body'>
             <button className='h1'>Login</button>

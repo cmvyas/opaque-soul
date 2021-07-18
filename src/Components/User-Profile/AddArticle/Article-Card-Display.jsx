@@ -2,7 +2,7 @@ import React from "react";
 import Landing from "../../Landing/landing";
 import "./AddArticle.css";
 
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class AddArticle extends React.Component {
   constructor() {
@@ -22,7 +22,7 @@ class AddArticle extends React.Component {
           <Landing name={this.props.name} />
         </div>
         <div className='try'>
-          <div className='Add'>
+          <div className='userAdd'>
             {this.props.allArticles.map((articlebody) => (
               <div key={articlebody.id}>
                 <div className='cardd'>

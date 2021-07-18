@@ -6,7 +6,7 @@ class Landing extends React.Component {
   render() {
     return (
       <div className='landing-top'>
-        <Link to='/all'>
+        <Link to='/opaque-soul-collection'>
           <h4 className='landing-reader-writer'>OS Collection</h4>
         </Link>
         <Link to='/user-collection'>

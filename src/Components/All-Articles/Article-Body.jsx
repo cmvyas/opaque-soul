@@ -11,7 +11,7 @@ class ArticleBody extends React.Component {
         <div id='scrollpath'></div>
         <div className='bodyarticle'>
           <div className='article-title'>
-            <Link to='/opaque-soul'>
+            <Link to='/user-collection'>
               <button className='save'>BACK</button>
             </Link>
           </div>

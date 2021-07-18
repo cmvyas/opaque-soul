@@ -1,9 +1,9 @@
-.Add {
+.userAdd {
   z-index: 2;
   font-family: "Assistant", sans-serif;
-  padding: 10vh 1vh;
-  max-width: auto;
-  min-width: 100vw;
+  padding: 8vh 0vh;
+  
+  min-width: 86vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr ;
   grid-gap: 2vmax;
@@ -36,7 +36,7 @@
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
   background-color: rgba(116, 6, 116, 0.541);
-  background: url(./b.png) no-repeat ;
+  background: url(./c.png) no-repeat ;
   background-size: cover;
 }
 
@@ -60,8 +60,7 @@
   overflow: hidden;
   resize: none;
   text-align: start;
-  margin-left: 0px;
-  margin-top: 0px !important;
+
   
 
 }
@@ -91,4 +90,31 @@ font-weight: 300;
   box-shadow: 2px 2px 12px rgb(91, 12, 143);
   transform: translateY(2px);
   cursor: pointer;
+}
+.icon-add{
+ color: antiquewhite;
+  background-size: contain;
+  height: 3vmax;
+  width:3vmax;
+ border:transparent;
+  padding: 0vmax 0.5vmax;
+  background-color: rgb(100, 0, 92);
+ font-size: 2vmax;
+ border-radius: 17px;
+ margin-top: 0.5vmax;
+ transition: ease 0.4s;
+ box-shadow: 2px 2px 10px rgb(91, 12, 143);
+}
+.icon-add:hover{
+  transform: scale(1.1);
+  
+}
+.icon-button{
+  width: 96%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1vmax;
+  border: none;
+
 }

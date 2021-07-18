@@ -62,7 +62,7 @@ class Register extends React.Component {
           if (user) {
             this.props.newUser(user);
             this.props.onLoginChange();
-            this.props.history.push("/opaque-soul");
+            this.props.history.push("/opaque-soul-collection");
           }
         });
     }
@@ -72,7 +72,7 @@ class Register extends React.Component {
       <div className='Login'>
         <div className='card'>
           <div className='img'>
-            <img alt='register'></img>
+            <img></img>
           </div>
           <div className='card-body'>
             <button className='h1'>register</button>

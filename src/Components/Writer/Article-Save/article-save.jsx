@@ -3,7 +3,7 @@ import "./save.css";
 import { withRouter } from "react-router-dom";
 class Save extends React.Component {
   onBack = () => {
-    this.props.history.push("/landing");
+    this.props.history.push("/user-collection");
   };
   render() {
     return (

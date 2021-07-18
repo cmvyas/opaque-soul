@@ -1,5 +1,5 @@
 import React from "react";
-import UserArticleCard from "./userArticleCardDisplay";
+import UserArticle from "./userArticle";
 
 class UserArticles extends React.Component {
   constructor() {
@@ -16,10 +16,10 @@ class UserArticles extends React.Component {
   render() {
     return (
       <div className='Add'>
-        <UserArticleCard
+        <UserArticle
           allArticles={this.state.allArticles}
-          currentArticleId={this.props.currentArticleId}
           name={this.props.name}
+          currentArticleId={this.props.currentArticleId}
         />
       </div>
     );

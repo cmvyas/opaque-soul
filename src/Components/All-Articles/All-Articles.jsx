@@ -1,5 +1,4 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import AddArticle from "../User-Profile/AddArticle/Article-Card-Display";
 
 class AllArticles extends React.Component {
@@ -27,4 +26,4 @@ class AllArticles extends React.Component {
     );
   }
 }
-export default withRouter(AllArticles);
+export default AllArticles;
