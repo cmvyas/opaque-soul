@@ -9,7 +9,7 @@ class ReadArticle extends React.Component {
   }
   componentDidMount() {
     fetch(
-      `http://localhost:4001/opaque-soul/readers/${this.props.currentArticleId}`
+      `https://immense-caverns-74957.herokuapp.com/opaque-soul/readers/${this.props.currentArticleId}`
     )
       .then((response) => response.json())
       .then((article) => this.setState({ article: article }))

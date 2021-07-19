@@ -9,7 +9,7 @@ class AllArticles extends React.Component {
     };
   }
   componentDidMount() {
-    fetch("http://localhost:4001/opaque-soul/readers")
+    fetch("https://immense-caverns-74957.herokuapp.com/opaque-soul/readers")
       .then((response) => response.json())
       .then((article) => this.setState({ allArticles: article }));
   }

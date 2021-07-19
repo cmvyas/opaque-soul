@@ -67,7 +67,7 @@ class Writer extends React.Component {
   onSubmitSaveButton = () => {
     const isValid = this.validate();
     if (isValid) {
-      fetch("http://localhost:4001/newArticle", {
+      fetch("https://immense-caverns-74957.herokuapp.com/newArticle", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
