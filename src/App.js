@@ -77,7 +77,7 @@ class App extends React.Component {
         />
 
         <Switch>
-          <Route path='/' exact component={Home}></Route>
+          <Route path='/' exact component={Home} />
 
           <Route path='/login'>
             <Login newUser={this.newUser} onLoginChange={this.onLoginChange} />
