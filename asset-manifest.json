@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/opaque-soul/static/css/main.699d90e2.chunk.css",
+    "main.js": "/opaque-soul/static/js/main.7c4d6d00.chunk.js",
+    "main.js.map": "/opaque-soul/static/js/main.7c4d6d00.chunk.js.map",
+    "runtime-main.js": "/opaque-soul/static/js/runtime-main.ccb9da7f.js",
+    "runtime-main.js.map": "/opaque-soul/static/js/runtime-main.ccb9da7f.js.map",
+    "static/js/2.2a1c1952.chunk.js": "/opaque-soul/static/js/2.2a1c1952.chunk.js",
+    "static/js/2.2a1c1952.chunk.js.map": "/opaque-soul/static/js/2.2a1c1952.chunk.js.map",
+    "static/js/3.8ce742a6.chunk.js": "/opaque-soul/static/js/3.8ce742a6.chunk.js",
+    "static/js/3.8ce742a6.chunk.js.map": "/opaque-soul/static/js/3.8ce742a6.chunk.js.map",
+    "index.html": "/opaque-soul/index.html",
+    "static/css/main.699d90e2.chunk.css.map": "/opaque-soul/static/css/main.699d90e2.chunk.css.map",
+    "static/js/2.2a1c1952.chunk.js.LICENSE.txt": "/opaque-soul/static/js/2.2a1c1952.chunk.js.LICENSE.txt",
+    "static/media/4.8b99dbac.png": "/opaque-soul/static/media/4.8b99dbac.png",
+    "static/media/save.css": "/opaque-soul/static/media/bu.abd18d27.gif",
+    "static/media/AddArticle.css": "/opaque-soul/static/media/c.d9522dfa.png",
+    "static/media/Login.css": "/opaque-soul/static/media/image.a8f481a3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ccb9da7f.js",
+    "static/js/2.2a1c1952.chunk.js",
+    "static/css/main.699d90e2.chunk.css",
+    "static/js/main.7c4d6d00.chunk.js"
+  ]
+}
