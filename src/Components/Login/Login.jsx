@@ -6,7 +6,7 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      email: "",
       password: "",
       nameError: "",
       noUser: false,
@@ -14,7 +14,7 @@ class Login extends React.Component {
   }
 
   onUserChange = (e) => {
-    this.setState({ name: e.target.value });
+    this.setState({ email: e.target.value });
   };
   onPasswordChange = (e) => {
     this.setState({ password: e.target.value });
@@ -22,7 +22,7 @@ class Login extends React.Component {
   validate = () => {
     let nameError = "";
 
-    if (!this.state.name || !this.state.password) {
+    if (!this.state.email || !this.state.password) {
       nameError = "Try Again";
     }
 
@@ -40,19 +40,16 @@ class Login extends React.Component {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: this.state.name,
+          email: this.state.email,
           password: this.state.password,
         }),
       })
         .then((response) => response.json())
         .then((data) => {
           if (data.id) {
-            this.setState({ noUser: false });
-            if (isValid) {
-              this.props.newUser(data);
-              this.props.onLoginChange();
-              this.props.history.push("/opaque-soul-collection");
-            }
+            this.props.newUser(data);
+            this.props.onLoginChange();
+            this.props.history.push("/opaque-soul-collection");
           }
         });
     }
@@ -75,11 +72,11 @@ class Login extends React.Component {
                 ) : null}
                 <input
                   required
-                  value={this.state.name}
+                  value={this.state.email}
                   onChange={this.onUserChange}
                   className='form1'
                   type='text'
-                  placeholder='User'
+                  placeholder='Email'
                 ></input>
               </div>
               <div>

@@ -84,7 +84,7 @@ class Writer extends React.Component {
             this.props.newArticle(article);
           }
         })
-        .then(this.props.history.push("/save"));
+        .then(this.props.history.push("/saved"));
     }
   };
 
