@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import "../Login/Login.css";
-
+import Footer from "../footer/footer";
 class Register extends React.Component {
   constructor() {
     super();
@@ -130,6 +130,7 @@ class Register extends React.Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

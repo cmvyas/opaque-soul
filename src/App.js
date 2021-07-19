@@ -9,7 +9,7 @@ import Background from "./Components/Background/background";
 import { Switch, Route, Redirect } from "react-router-dom";
 import AllArticles from "./Components/All-Articles/All-Articles";
 import Save from "./Components/Writer/Article-Save/article-save";
-import Footer from "./Components/footer/footer";
+
 import ReadArticle from "./Components/All-Articles/Read-Article";
 import UserArticle from "./Components/Users-Articles/userArticleCollection";
 
@@ -129,7 +129,6 @@ class App extends React.Component {
             <Save />
           </Route>
         </Switch>
-        <Footer />
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React from "react";
-
+import Footer from "../footer/footer";
 import "./Writer.css";
 import { Link, withRouter } from "react-router-dom";
 
@@ -149,6 +149,7 @@ class Writer extends React.Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

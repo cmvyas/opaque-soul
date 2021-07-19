@@ -1,6 +1,7 @@
 import React from "react";
 import "./save.css";
 import { withRouter } from "react-router-dom";
+import Footer from "../../footer/footer";
 class Save extends React.Component {
   onBack = () => {
     this.props.history.push("/user-collection");
@@ -19,6 +20,7 @@ class Save extends React.Component {
             BACK
           </button>
         </div>
+        <Footer />
       </div>
     );
   }
