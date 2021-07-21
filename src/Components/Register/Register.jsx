@@ -64,7 +64,8 @@ class Register extends React.Component {
             this.props.onLoginChange();
             this.props.history.push("/opaque-soul-collection");
           }
-        });
+        })
+        .catch(console.log());
     }
   };
   render() {
