@@ -7,23 +7,22 @@
   justify-content: center;
   display: flex;
   align-items: center;
-
   min-height: 30vh;
-  min-width: 60vh;
+  min-width: 60vw;
 }
 .article-heading,
 .article-subheading {
   color: #414141;
-  font-size: 1.6vmax;
+  font-size: 3vmin;
   padding: 1px 0px !important;
   font-family: 'Abril Fatface', cursive;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   border: none;
   background: transparent;
   width: 100%;
   overflow: hidden;
   resize: none;
-  
+  line-height: 160% !important;
 
 }
 .article-subheading {
@@ -43,14 +42,14 @@ textarea:focus {
   outline: none;
   resize: none;
   height: auto;
-  width: auto;
+  width: 72%;
   border: none;
   background-color: transparent;
   padding: 5px 0px;
   word-spacing: 1px;
   line-height: 180% !important;
   color: rgb(11, 1, 49);
-  font-size: 1.2vw;
+  font-size: 1.2vmax;
   margin-top: 20px;
 }
 .blockquote

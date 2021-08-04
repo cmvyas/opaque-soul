@@ -20,7 +20,7 @@
 	 grid-template-columns: 1fr 4fr;
 	 align-items: center;
 	 padding-bottom: 0;
-	 height: 60vh;
+	 height: 60vmax;
 	 width: 100%;
 	 font-family: 'Acme', sans-serif;
 	 color: #42003f;

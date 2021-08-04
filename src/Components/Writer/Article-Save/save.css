@@ -7,11 +7,11 @@
 
 .waiting {
   width:auto;
-  font-size: 2vmax;
+  font-size: 3vw;
   color: rgb(55, 1, 59);
   text-transform: capitalize;
   font-family: 'Quicksand', sans-serif;
-  line-height: 60px;
+  line-height: 4vmax;
   margin-top: 400px;
   align-self: center;
   background: url(./bu.gif);
@@ -21,8 +21,8 @@
   height: 200px;
   justify-self: center;
   padding-top: 70px;
-  padding-left: 100px;
-  padding-right: 100px;
+  /* padding-left: 100px; */
+  /* padding-right: 100px; */
   padding-top: 80px;
   padding-bottom: 80px;
   border-radius: 20px;
@@ -36,8 +36,8 @@
 }
 .back-button{
  
-  padding: 14px 16px;
-  margin-top: 60px;
+  padding: 1vmax 1vmax;
+  margin-top: 12vh;
   border: none;
   background-color: rgb(82, 12, 85);
   border-radius: 4px;

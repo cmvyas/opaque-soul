@@ -4,25 +4,25 @@
     min-width: 60vh;
 }
 .bodyarticle {
-    padding: 14rem;
+    padding: 14vw;
     margin-left: 8vw;
   }
   .readheading,
 .readsubheading {
   color: #414141;
-  font-size: 1.6vmax;
+  font-size: 3vh;
   padding: 1px 0px !important;
   font-family: 'Abril Fatface', cursive;
-  letter-spacing: 4px;
+  letter-spacing: 0.1vw;
   border: none;
   background: transparent;
   width: 80%;
   text-transform: capitalize;
-
+margin-top:6vmax;
 }
 .readsubheading {
   margin-top: 20px;
-  font-size: 1.1vmax;
+  font-size: 2vh;
   margin-bottom: 0px !important;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-transform: capitalize;
