@@ -4,7 +4,7 @@ import "./Home.css";
 import Footer from "../footer/footer";
 const Home = () => {
   return (
-    <div>
+    <div className='oss'>
       <div id='app'>
         <div class='image'>
           <img src={home} alt=''></img>
