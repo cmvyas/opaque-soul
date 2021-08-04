@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/opaque-soul/static/css/main.699d90e2.chunk.css",
-    "main.js": "/opaque-soul/static/js/main.0e5b134d.chunk.js",
-    "main.js.map": "/opaque-soul/static/js/main.0e5b134d.chunk.js.map",
+    "main.css": "/opaque-soul/static/css/main.34c0abea.chunk.css",
+    "main.js": "/opaque-soul/static/js/main.ea84b75c.chunk.js",
+    "main.js.map": "/opaque-soul/static/js/main.ea84b75c.chunk.js.map",
     "runtime-main.js": "/opaque-soul/static/js/runtime-main.ccb9da7f.js",
     "runtime-main.js.map": "/opaque-soul/static/js/runtime-main.ccb9da7f.js.map",
     "static/js/2.2a1c1952.chunk.js": "/opaque-soul/static/js/2.2a1c1952.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.8ce742a6.chunk.js": "/opaque-soul/static/js/3.8ce742a6.chunk.js",
     "static/js/3.8ce742a6.chunk.js.map": "/opaque-soul/static/js/3.8ce742a6.chunk.js.map",
     "index.html": "/opaque-soul/index.html",
-    "static/css/main.699d90e2.chunk.css.map": "/opaque-soul/static/css/main.699d90e2.chunk.css.map",
+    "static/css/main.34c0abea.chunk.css.map": "/opaque-soul/static/css/main.34c0abea.chunk.css.map",
     "static/js/2.2a1c1952.chunk.js.LICENSE.txt": "/opaque-soul/static/js/2.2a1c1952.chunk.js.LICENSE.txt",
     "static/media/4.8b99dbac.png": "/opaque-soul/static/media/4.8b99dbac.png",
     "static/media/save.css": "/opaque-soul/static/media/bu.abd18d27.gif",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.ccb9da7f.js",
     "static/js/2.2a1c1952.chunk.js",
-    "static/css/main.699d90e2.chunk.css",
-    "static/js/main.0e5b134d.chunk.js"
+    "static/css/main.34c0abea.chunk.css",
+    "static/js/main.ea84b75c.chunk.js"
   ]
 }
